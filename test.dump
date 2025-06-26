@@ -1,0 +1,59 @@
+0x000000 ~ 0x08  >> varint | 1
+		 |-Field ~ 1
+0x000001 |-HEX >> 0x05 | DECIMAL >> 5
+0x000004 ~ 0x0A  >> len | 2
+0x000005 |- Length >> 8
+0x000006 |- len - (byte 0) >> -HEX >> 0x68 | DEC >> 104 | h
+0x000007 |- len - (byte 1) >> -HEX >> 0x65 | DEC >> 101 | e
+0x000008 |- len - (byte 2) >> -HEX >> 0x6C | DEC >> 108 | l
+0x000009 |- len - (byte 3) >> -HEX >> 0x6C | DEC >> 108 | l
+0x00000A |- len - (byte 4) >> -HEX >> 0x6F | DEC >> 111 | o
+0x00000B |- len - (byte 5) >> -HEX >> 0x2C | DEC >> 44 | ,
+0x00000C |- len - (byte 6) >> -HEX >> 0x86 | DEC >> 134 | .
+0x00000D |- len - (byte 7) >> -HEX >> 0xAE | DEC >> 174 | .
+		 |~ DECODED : 
+/* NOTE -> Bytes Greater than 127 are Represnted by '.' in ASCII */
+
+hello,..
+
+0x000010 ~ 0x05  >> i32 | 3
+0x000011 |- i32 - (byte 0) >> -HEX >> 0x00 | DECIMAL >> 0
+0x000012 |- i32 - (byte 1) >> -HEX >> 0x00 | DECIMAL >> 0
+0x000013 |- i32 - (byte 2) >> -HEX >> 0x80 | DECIMAL >> 128
+0x000014 |- i32 - (byte 3) >> -HEX >> 0x3F | DECIMAL >> 63
+		 |~ Bytes in I32 >> 0x3F800000
+		 |~ i32 value: 1
+0x000015 ~ 0x27  >> unknown | -1
+0x000016 ~ 0x17  >> unknown | -1
+0x000017 ~ 0x08  >> varint | 1
+		 |-Field ~ 1
+0x000018 |-HEX >> 0x07 | DECIMAL >> 7
+0x00001A ~ 0x12  >> len | 2
+0x00001B |- Length >> 22
+0x00001C |- len - (byte 0) >> -HEX >> 0x74 | DEC >> 116 | t
+0x00001D |- len - (byte 1) >> -HEX >> 0x68 | DEC >> 104 | h
+0x00001E |- len - (byte 2) >> -HEX >> 0x69 | DEC >> 105 | i
+0x00001F |- len - (byte 3) >> -HEX >> 0x73 | DEC >> 115 | s
+0x000020 |- len - (byte 4) >> -HEX >> 0x2C | DEC >> 44 | ,
+0x000021 |- len - (byte 5) >> -HEX >> 0x69 | DEC >> 105 | i
+0x000022 |- len - (byte 6) >> -HEX >> 0x73 | DEC >> 115 | s
+0x000023 |- len - (byte 7) >> -HEX >> 0x20 | DEC >> 32 |  
+0x000024 |- len - (byte 8) >> -HEX >> 0x61 | DEC >> 97 | a
+0x000025 |- len - (byte 9) >> -HEX >> 0x20 | DEC >> 32 |  
+0x000026 |- len - (byte 10) >> -HEX >> 0x74 | DEC >> 116 | t
+0x000027 |- len - (byte 11) >> -HEX >> 0x65 | DEC >> 101 | e
+0x000028 |- len - (byte 12) >> -HEX >> 0x73 | DEC >> 115 | s
+0x000029 |- len - (byte 13) >> -HEX >> 0x74 | DEC >> 116 | t
+0x00002A |- len - (byte 14) >> -HEX >> 0x20 | DEC >> 32 |  
+0x00002B |- len - (byte 15) >> -HEX >> 0x66 | DEC >> 102 | f
+0x00002C |- len - (byte 16) >> -HEX >> 0x69 | DEC >> 105 | i
+0x00002D |- len - (byte 17) >> -HEX >> 0x6C | DEC >> 108 | l
+0x00002E |- len - (byte 18) >> -HEX >> 0x65 | DEC >> 101 | e
+0x00002F |- len - (byte 19) >> -HEX >> 0x2D | DEC >> 45 | -
+0x000030 |- len - (byte 20) >> -HEX >> 0x3B | DEC >> 59 | ;
+0x000031 |- len - (byte 21) >> -HEX >> 0x3E | DEC >> 62 | >
+		 |~ DECODED : 
+/* NOTE -> Bytes Greater than 127 are Represnted by '.' in ASCII */
+
+this,is a test file-;>
+
