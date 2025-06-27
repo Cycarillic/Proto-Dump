@@ -1,5 +1,6 @@
+
 # PROTO DUMP
-Proto dump is a powerful CLI dump tool designed to dump protocol buffers for the andoird game Swordigo in a simple and readable format.
+Proto dump is a powerful CLI dump tool designed to dump protocol buffers for the android game Swordigo in a simple and readable format.
 
 It is written in raw c++ and provides detailed analysis of the files in a color-coded wire-types,values, offsets and ASCII representations.
 
@@ -29,11 +30,11 @@ Install the latest release and your to go!
 
 ## Usage
 
-proto <filename> `flags`
+proto `filename` `flags`
 
 ### Flags
 
-1. ``-o`` : Save the Dump in a file.
+1. ``-o``/``--out`` : Save the Dump in a file.
 USAGE :
 
 ```
@@ -42,7 +43,7 @@ proto <YourFile> -o OutPutFile
 Saves the Dump in a file
 
 
-2. ``-s`` : Stop at a specific offset.
+2. ``-s``/``--stop`` : Stop at a specific offset.
 USAGE :
 
 ```
@@ -50,3 +51,11 @@ proto <YourFile> -s 0xFF
 ```
 
 Stops at offset `0xFF` AFTER THE END OF DUMPING THE CONTENTS OF VARINTS,LEN,I32.
+
+
+3. ``-q``/``--quiet`` : quiet mode does not print parsed bytes to console (Increases Performace, Recommended for big/huge files).
+USAGE :
+
+```
+proto <YourFile> -o OutputFIle -q
+```
